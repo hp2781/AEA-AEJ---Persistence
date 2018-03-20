@@ -1,0 +1,357 @@
+% AEJ-Article.tex for AEA last revised 22 June 2011
+\documentclass[AEJ,reqno, draftmode]{AEA}
+
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[figuresright]{rotating}
+%\usepackage[abbr]{harvard}
+\usepackage{booktabs}  %this is for toprule...
+\usepackage{colortbl}
+\usepackage{dcolumn}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{afterpage}
+\usepackage[section]{placeins}
+\usepackage{siunitx}
+%\usepackage{placeins}
+\usepackage{tabu} % for table in markup ds..
+\usepackage{tabularx}
+\graphicspath{{Figures/}}
+%\usepackage{caption} % this is used to add source or additional note on the figures..
+\usepackage{subfig}
+\usepackage[para, flushleft]{threeparttable}
+\usepackage{physics} % this is used for adding partial derivatives etc..
+\usepackage{multirow}
+\usepackage{multicol}
+%\usepackage{showframe}
+\usepackage[margin=1.5in]{geometry}
+\usepackage[multiple,bottom]{footmisc} % to add multiple footnotes at one place..
+\usepackage{enumerate}
+\newcolumntype{G}{>{\collectcell\@gobble}c<{\endcollectcell}@{}}
+\newcolumntype{H}{>{\lrbox0}c<{\endlrbox}@{}}
+
+
+
+%\usepackage{tablefootnote} % this should be loaded after the hyperref and sideways table packages/environments..
+
+
+% The mathtime package uses a Times font instead of Computer Modern.
+% Uncomment the line below if you wish to use the mathtime package:
+%\usepackage[cmbold]{mathtime}
+% Note that miktex, by default, configures the mathtime package to use commercial fonts
+% which you may not have. If you would like to use mathtime but you are seeing error
+% messages about missing fonts (mtex.pfb, mtsy.pfb, or rmtmi.pfb) then please see
+% the technical support document at http://www.aeaweb.org/templates/technical_support.pdf
+% for instructions on fixing this problem.
+
+% Note: you may use either harvard or natbib (but not both) to provide a wider
+% variety of citation commands than latex supports natively. See below.
+
+% Uncomment the next line to use the natbib package with bibtex 
+%\usepackage{natbib}
+
+% Uncomment the next line to use the harvard package with bibtex
+%\usepackage[abbr]{harvard}
+
+% This command determines the leading (vertical space between lines) in draft mode
+% with 1.5 corresponding to "double" spacing.
+
+
+%\draftSpacing{1.5}
+
+\begin{document}
+
+\title{Persistence in Australian Housing Capital and Rental Returns}
+\author{Vito Mollica, Haresh Pardasani and Stefan Trueck\thanks{%
+Mollica: Macquarie University, Graduate School of Management; Pardasani: Macquarie University, Graduate School of Management; Trueck: Macquarie University, Department of Business \& Economics. The authors gratefully acknowledge Macquarie University and Capital Markets Cooperative Research Centre (CMCRC) for providing the scholarship for the PhD research; CoreLogic RP data for providing the house price index for the research. We would also like to thank Scott Mathews and Kevin Ward for providing valuable feedback during the research.}}
+\date{\today}
+\pubMonth{Mar}
+\pubYear{2018}
+\pubVolume{}
+\pubIssue{}
+\JEL{}
+\Keywords{Housing, Capital Returns, Rental Returns, Persistence, Predictability, Market Efficiency}
+
+\begin{abstract}
+This paper examines the persistence of inflation-adjusted house price capital and rental returns in Australian housing market at nationwide as well as different statistical geographic levels by houses, units and all dwellings. Applying a unvariate time series approach and non-parametric independent runs tests on monthly as well as quarterly transaction-based indices from 2005 to 2017, we provide empirical evidence of overall high persistence in Australian house price returns. We also find that there is relatively less persistence in rental vis-a-vis capital returns. Additionally, we find less persistence at quarterly than at monthly levels. \\
+
+\end{abstract}
+
+\maketitle
+
+
+
+\section{Introduction}
+
+
+The financial crisis has also demonstrated the importance of housing markets.. and therefore it is important to study the housing market..
+
+The private households have high allocation of their total wealth ties to house
+
+The topic of persistence, market efficiency and predictability is highly significant for housing markets. More than half the net wealth of individuals in Australia consists of real estate of which home constitutes substantial part.Due to strong implications and consequences, increasing number of market participants are interested in forecasting markets and hedging their risk exposure. Therefore a closer look at the persistence in Australian House prices is a worthwhile project.
+
+
+
+
+\section{Literature Review}
+
+The research on persistence in house price return is often discussed in the context of the validity of market efficiency. 
+
+\citet{elder2012persistence} examine the return and volatility of the S\&P Case Shiller real estate index for evidence of long memory in the form of fractional difference. They find evidence of very persistent long memory in both the return and volatility of real estate index. They suggest that long memory in real estate returns implies future asset return are predictable at long horizons, potentially violating weak form of efficiency.
+
+
+
+
+
+
+\section{Methodology}
+
+In our study we analyze price persistence under the hypothesis that price changes are unpredictable and by examining whether or not prices follow a random walk. If the price changes were correlated with the past, then we could predict the future returns based on the past returns. Under the random walk hypothesis, a non-predictable random mechanism generates the behavior of price changes. In the simplest form of random walk model, the current index $I_t$ equals the previous index $I_{t-1}$ plus the realization of random term $\epsilon_t$
+
+\begin{equation} \label{eq: a}
+    I_t = I_{t-1} + \epsilon_t ,
+\end{equation}
+
+where $I_t$ is the natural logarithm of the index and $\epsilon_t$ is a random disturbance term at time $t$ such that $E[\epsilon_t] = 0$ and $E[\epsilon_t\epsilon_{t-h}] = 0$, $h \neq 0$ for all $t$. If the expected index changes are given by $E[\Delta I_t] = E[\epsilon_t] = 0$, the best linear estimator for index $I_t$, is the previous index value $I_{t-1}$. Under the assumption that expected index changes $\mu$ constant over time, the random walk model expands to a random walk with drift
+
+\begin{equation}
+\label{eq: b}
+    \begin{gathered}
+        I_t = I_{t-1} + \mu + \epsilon_t \\ or \\
+          \Delta I_t = \mu + \epsilon_t.
+      \end{gathered}
+\end{equation}
+
+The random walk implies uncorrelated residuals and hence uncorrelated price changes, $\Delta I_t$; $\epsilon_t ~ i.i.d.(0, \sigma^2)$ denotes that the increments $\epsilon_t$ are independently and identically distributed (i.i.d) with $E[\epsilon_t] = 0$ and $E[\epsilon_t^2] = \sigma_\epsilon^2$.
+
+
+            
+            heirarchy
+            
+            variance ratio test statistic -- This is the main statistic
+            
+            Auto variance ratio test -- Auto stands for automatic selection of optimal lag based on data dependent procedure. The lags here correct for the serial correlation
+            
+            then bootstrap auto variance test -- the boostrapping here correct for the heteroskedacity..
+            
+            then wild bootstrap auto variance ratio test -- the wild is the usage of normal distribution used for creating bootstrapped sample..
+
+
+
+\subsection{Variance Ratio Test of Random Walk}
+            
+The traditional random walk tests on the basis of serial correlation and unit roots are vulnerable to errors due to autocorrelation induced by non-synchronous and infrequent trading. A discussion on this topic with respect to house price indices with a small sample size can be found in \citet{karl1989efficiency} and in Kuo (1996), respectively. To resolve this shortcoming (for financial time series), \citep{lo1988stock}, \citep{lo1989size} developed tests for random walks based on variance ratio estimators.
+
+The variance of the increments of a random walk is linearly time-dependent. Thus, if the natural logarithm of index $I_t$ follows a pure random walk with drift (Eqn. \eqref{eq: b}), the variance of index returns should increase proportionally to the interval q. Suppose a series of nq + 1 price observations ($P_0, P_1, P_2,...,P_{nq}$) measured at uniform intervals is available. If this time series follows a random walk, the variance of the qth difference will correspond to q times the variance of first differences. Following the models of Eqs. \eqref{eq: a} and \eqref{eq: b}, the variance of the first differences, denoted as $\hat{\sigma}^2[I_t - I_{t-1}]$ and $\hat{sigma}^2[r_t]$, respectively, grows linearly over time so that the variance of the qth difference is 
+
+\begin{equation}
+\label{eq: c}
+    \begin{gathered}
+        \hat{\sigma}^2[I_t - I_{t-q}] = q\hat{\sigma}^2[I_t - I_{t-1}]   \\ 
+            or \\
+          \hat{\sigma}^2[r_t(q)] = q\hat{\sigma}^2[r_t].
+      \end{gathered}
+\end{equation}
+
+For the qth lag in $I_t$, where q is any integer greater than one, the variance ratio, VR(q), is defined as
+
+\begin{equation} \label{d}
+    VR(q) = \frac{\hat{\sigma^2}[r_t(q)]}{q\hat{\sigma^2}[r_t]} = 1 + 2\sum_{h=1}^{q-1}(1-\frac{i}{q})\hat{\rho}(i),
+\end{equation}
+
+where $\hat{\sigma^2[\cdot]}$ is an unbiased estimator of the variance. The expected value of VR(q) is one under the null hypothesis of a random walk for all values of q. Since $I_t$ describes the logarithmic price process, $r_t(q)$ is a $q$ period continuously compounded returns with $r_t(q) \equiv r_t + r_{t-1} + ... + r_{t-q+1} = I-t - I_{t-q}$. $\hat{\rho(i)}$ is the estimator of $i^{th}$ serial correlation coefficient. Alternatively, values for VR(q) greater than one imply mean aversion while values smaller than one imply mean reversion. Equation \eqref{d} shows that VR(q) is a particular linear combination of the first h-1 autocorrelation coefficients with linearly declining weights. If index $I_t$ behaves like a random walk, VR(q) = 1 because $\hat{\rho}(h) = 0$ for all $h\geq 1$.
+
+Under the null hypothesis of a homoscedastic increments random walk, \citet{lo1988stock} derive an asymptotic standard normal test statistic for the VR. The standard z-test statistic is 
+
+
+\begin{equation} \label{e}
+    Z_1(q) = \frac{VR(q)-1}{\sqrt{\hat{\theta}_1(q)}} =  \frac{M_r(q)}{\sqrt{\hat{\theta}_1(q)}} \stackrel{a}{\sim} N(0,1) ,
+\end{equation}
+
+
+where $\hat{\theta}_1(q) = \frac{2(2q-1)(q-1)}{3q(nq)}$, and $\stackrel{a}{\sim}$ denotes that the distributional equivalence is asymptotic.
+
+Time series typically have time-varying volatilites, with returns deviating from normality. When index changes are conditionally heteroscedastic over time, there may not exist a linear relation across the observation intervals. Hence, \citet{lo1988stock} suggest a second test statistic $Z_2(q)$ with a heteroscedasticity-consistent variance estimator $\hat{\theta}_2(q)$ :
+
+
+\begin{equation} \label{f}
+    Z_2(q) = \frac{VR(q)-1}{\sqrt{\hat{\theta}_2(q)}} =  \frac{M_r(q)}{\sqrt{\hat{\theta}_2(q)}} \stackrel{a}{\sim} N(0,1) ,
+\end{equation}
+
+with
+
+$$ \hat{\theta}_2(q) = \sum_{j=1}^{q-1}\left[\frac{2(q-j)}{q}\right]^2 \cdot \hat{\delta}(j) $$
+
+and
+
+$$ \hat{\delta}(j) = \frac{\sum\limits_{t=j+1}^{nq}(I_t-I_{t-1}-\hat{\mu})^2(I_{t-j}-I_{t-j-1}-\hat{\mu})^2}{\sum\limits_{t=1}^{nq}(I_t-I_{t-1}-\hat{\mu})^2}  $$
+
+If the null hypothesis is true, the modified heteroscedasticity-consistent test statistic in Eq. \eqref{f} has an asymptotic standard normal distribution \citep{liu1991variance}. The $Z_2(q)$-statistic is robust to heteroscedasticity as well as to non-normal error terms. 
+
+The variacne ratio test of \citet{lo1988stock} considers one VR for a single aggregation interval q by comparing the test statistics $Z_1(q)$ and $Z_2(q)$ with critical value of a standard normal distribution. To implement the test, a choice of holding periods q should be made; e.g., a popular choice for daily return is 2, 5, 10, 20 40 and 2, 4, 8, 16, 32 for weekly returns. However these choices are arbitrary and made with little statistical justifications. In response to this, \citet{choi1999testing} proposed an Automatic Variance Ratio (AVR) test, in which the optimal value of q is determined using a completely data-dependent procedure. 
+
+If $Y_t$ is an asset return at time $t(t = 1,...,T)$, the AVR test of \citet{choi1999testing} is based on the statistic of the form
+
+
+\begin{equation} \label{g}
+    VR(q) = 1 + 2\sum_{i=1}^{T-1}m(i/k)\hat{\rho}(i),
+\end{equation}
+
+where 
+
+$$ \hat{\rho}(i) = \frac{\sum\limits_{t=1}^{T-i}(Y_t-\hat{\mu})(Y_{t+i}-\hat{\mu})}{\sum\limits_{t=1}^{T}(Y_t-\hat{\mu})^2} \quad \textrm{and} \quad \hat{\mu} = \frac{1}{T}\sum_{t=1}^{T}Y_t, $$
+
+while $m(x) = \frac{25}{12\pi^2x^2}\left[\frac{sin(6\pi x/5)}{6\pi x/5}-cos(6\pi x/5)\right]$ is the quadratic spectral kernel. In order to choose the value of lag truncation point (or holding period) q optimally, \citet{choi1999testing} adopted a data-dependent method of \citet{andrews1991heteroskedasticity} for spectral density at zero frequency. The AVR test statistic with the optimally chosen lag truncation point is denoted as $AVR(\hat{q})$. 
+
+However, the $AVR(\hat{q})$ test is an asymptotic test which may show deficient small sample properties. \citet{choi1999testing} reported small sample properties for AVR test, when the returns follows an $iid$ process, while its properties under conditional heteroskedasticity are unknown.  To overcome this problem, \citet{kim2009automatic} recommends that the AVR test should be wild bootstrapped for correct size in small samples. According to \citet{kim2009automatic}, the power of wild bootstrap AVR test is found to be higher than its competitors in small samples.
+
+For example, in presence of conditional heteroskedacity, \citet{mammen1993bootstrap} applied the the wild bootstrap of AVR using two point distribution to improve small sample properties. \citet{kim2006wild} applied the wild bootstrap to the Lo-Mackinlay and Chow-Denning tests. 
+
+In this paper, we employ the methodology of wild bootstrap for $AVR(\hat{q})$ as proposed by \citet{kim2009automatic}. The wild bootstrap $AVR(\hat{q})$ is conducted in three stages as below:
+
+\begin{enumerate}[i]
+    \item We form a bootstrap sample of T observations $Y^*_t = \eta_t Y_t(t=1,...,T)$ where $\eta_t$ is arandom sequence with $E(\eta_t) = 0$ and $E(\eta_t^2)=1$
+    \item We calculate $AVR^*(\hat{q}^*)$, the AVR statistic obtained from $\{Y^*_t\}_{t=1}^T$; and
+    \item We repeat (i) and (ii) B = 500 times to form a bootstrap distribution of AVR statistic $\{AVR^*(\hat{k}^*;j)\}_{j=1}^{B=500}$
+\end{enumerate}
+
+The above procedure is applied an asymptotically pivotal statistic (AVR), and approximates its sampling distribution under $H_0$ since $Y_t^*$ is serially uncorrelated sequence conditionally on $Y_t$. According to \citet{kim2009automatic}, these are the desirable properties that for a bootstrap test.
+
+
+
+\subsection{Independent Runs Test}
+
+The VR tests and the often applied autocorrelation methods are based on the assumption of a linear process and both approaches thus test for linear dependencies by definition when challenging the random walk hypothesis. It is hence important to apply a direct test. The non-parametric runs test examines the independence of successive price returns and does not require normality or a linear process. These characteristics of testing methods are particularly useful for investigating price changes of house price indices, which are frequentyly non-normally distributed.
+
+A runs test determines whether the total number of runs in the sample is consistent with the hypothesis that price changes are independent. If the series of price changes exhibits a greater tendency of change in one direction, the average run will be longer and, consequently, the number of runs will be lower than when generated by a random process. In the Bernoulli case, the total number of runs is referred to as $N_Runs$ and the total expected number of runs is given by
+
+\begin{equation}
+    E[N_{Runs}] = 2n\pi (1-\pi) + \pi^2 + (1- \pi)^2,
+\end{equation}
+
+where $\pi = P(r_t>0) = \phi \left(\frac{\mu}{\sigma}\right)$, $\mu$ is the expected index change, and $\sigma$ is the standard deviation of index changes. For large sample sizes (N>30), the sampling distribution of $E[N_{Runs}]$ is approximately normal and a continuity correction is produced.
+
+When the actual number exceeds the expected runs, a positive Z-value is obtained and vice-verse. Consequently, a positive (negative) Z-value indicates negative (positive) serial correlation in the series of index changes.
+
+
+
+
+\section{Data}
+
+
+Provide the data description here...
+
+
+
+\newgeometry{margin=1in}
+\input{Tables/summary_stats_c_m.tex}
+\restoregeometry
+
+
+\newgeometry{margin=1in}
+\input{Tables/zr_stats_m.tex}
+\restoregeometry
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newgeometry{margin=1in}
+\input{Tables/count_m_c.tex}
+%\input{Tables/count_q_c.tex}
+\restoregeometry
+
+
+\newgeometry{margin=1in}
+\input{Tables/zr_count.tex}
+\restoregeometry
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newgeometry{margin=1in}
+\input{Tables/results_m.tex}
+\restoregeometry
+
+\newgeometry{margin=1in}
+\input{Tables/results_q.tex}
+\restoregeometry
+
+\newgeometry{margin=1in}
+\input{Tables/zr_results_m.tex}
+\restoregeometry
+
+\newgeometry{margin=1in}
+\input{Tables/zr_results_q.tex}
+\restoregeometry
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newgeometry{margin=1in}
+\input{Tables/runs_c_m.tex}
+\restoregeometry
+
+\newgeometry{margin=1in}
+\input{Tables/runs_c_q.tex}
+\restoregeometry
+
+\newgeometry{margin=1in}
+\input{Tables/zr_runs_m.tex}
+\restoregeometry
+
+\newgeometry{margin=1in}
+\input{Tables/zr_runs_q.tex}
+\restoregeometry
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+
+
+\section{Notes}
+
+\citet{kim2009automatic} proposes the use of wild bootstrap automatic variance ratio tests as they show that wild bootstrap shows no size distortions and has substantially higher power than other tests such as the Chen-Deo test and wild bootstrap Chow-Denning test.
+
+There are three random walks -- rw1, rw2 and rw3..
+
+rw1 is the strictest form of rnadom walk where the error terms is iid(0,1) that is the distribution of error terms for each time point is independently and identically distributed.
+
+rw2 is where we relax the assumption of identical distribution but not the independence that is we allow for the variance to be different over time there this means we are allowing for a heteroskedastic process...
+
+rw3 is where is where we further relax the independence distribution. this allows the error terms to be correlated over time.. Hence the rw3 is a random walk where the process is allowed to have autocorrleation and heteroskedacity.. resulting in the ARCH/GARCh process..
+
+For random walk there are two conditions required.. independence and identical distribution
+
+if we relax the criteria of identical then the process can be heteroskedacity
+
+if we relax the idea of independence then the process can be serially correlated..
+
+the returns of random walk are epislon distributed iid(0, sigma\_square)
+
+what this means is that the return are distributed with a mean zero and variance sigma square which is constant
+
+so if the variance of returns is constant then it is a homeskedastic process but in real world the procesess are often found to be non homoskedastic. 
+
+multiple variance ratio test considers multiple intervals and then 
+
+\end{comment}
+
+
+\bibliographystyle{aea}
+\bibliography{sample}
+
+% The appendix command is issued once, prior to all appendices, if any.
+
+\appendix
+\section{Mathematical Appendix}
+
+\end{document}
+
