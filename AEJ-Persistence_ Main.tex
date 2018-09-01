@@ -32,8 +32,18 @@
 \usepackage{enumerate}
 \newcolumntype{G}{>{\collectcell\@gobble}c<{\endcollectcell}@{}}
 \newcolumntype{H}{>{\lrbox0}c<{\endlrbox}@{}}
+%\usepackage{hyperref}
+%\hypersetup{
+  %  colorlinks=true,
+  %  linkcolor=red,
+  %  %filecolor=magenta,      
+    %urlcolor=cyan,
+%}
 
-
+\usepackage[pdfpagemode={UseOutlines},bookmarks=true,bookmarksopen=true,
+   bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
+   colorlinks,linkcolor={blue},citecolor={blue},urlcolor={red},
+   pdfstartview={FitV},unicode,breaklinks=true]{hyperref}
 
 %\usepackage{tablefootnote} % this should be loaded after the hyperref and sideways table packages/environments..
 
@@ -64,43 +74,399 @@
 
 \begin{document}
 
-\title{Persistence in Australian Housing Capital and Rental Returns}
-\author{Vito Mollica, Haresh Pardasani and Stefan Trueck\thanks{%
-Mollica: Macquarie University, Graduate School of Management; Pardasani: Macquarie University, Graduate School of Management; Trueck: Macquarie University, Department of Business \& Economics. The authors gratefully acknowledge Macquarie University and Capital Markets Cooperative Research Centre (CMCRC) for providing the scholarship for the PhD research; CoreLogic RP data for providing the house price index for the research. We would also like to thank Scott Mathews and Kevin Ward for providing valuable feedback during the research.}}
+\title{Regional Evidence on the Efficiency of the Capital and Rental Housing Markets in Australia}
+\shortTitle{Persistence in Australian Housing Markets}
+\author{Haresh Pardasani, Vito Mollica and Stefan Trueck\thanks{%
+Mollica: Macquarie University, Graduate School of Management; Pardasani: Macquarie University, Graduate School of Management; Trueck: Macquarie University, Department of Business \& Economics. The authors gratefully acknowledge Macquarie University and Capital Markets Cooperative Research Centre (CMCRC) for providing the scholarship for the PhD research; CoreLogic RP data for providing the house price index for the research.}}
 \date{\today}
-\pubMonth{Mar}
+\pubMonth{May}
 \pubYear{2018}
 \pubVolume{}
 \pubIssue{}
 \JEL{}
-\Keywords{Housing, Capital Returns, Rental Returns, Persistence, Predictability, Market Efficiency}
+\Keywords{Housing, Persistence, Market Efficiency, Predictability, Capital Returns, Rental Returns}
 
 \begin{abstract}
-This paper examines the persistence of inflation-adjusted house price capital and rental returns in Australian housing market at nationwide as well as different statistical geographic levels by houses, units and all dwellings. Applying a unvariate time series approach and non-parametric independent runs tests on monthly as well as quarterly transaction-based indices from 2005 to 2017, we provide empirical evidence of overall high persistence in Australian house price returns. We also find that there is relatively less persistence in rental vis-a-vis capital returns. Additionally, we find less persistence at quarterly than at monthly levels. \\
+This paper examines the persistence of inflation-adjusted house price capital and rental returns in Australian housing market at nationwide as well as several statistical geographic levels for houses, units and all dwellings. Applying a univariate time series approach and non-parametric independent runs tests on monthly as well as quarterly transaction-based indices from 2005 to 2017, we provide empirical evidence of persistence in rental and capital markets at nationwide and state level. We also find high persistence in greater capital cities, in the capital market as compared to the rest of states vis-à-vis rental market. As we aggregate at lower geographic levels, we find less number of regions with persistent returns for both capital and rental markets. Across property types, we find that houses have more persistent returns in the capital market, whereas, in the rental market, units have more persistent returns than houses. Additionally, we also find that, overall, there is more persistence at monthly than quarterly level. \\
 
 \end{abstract}
 
 \maketitle
 
-
-
 \section{Introduction}
 
+%lead into the problem of persistence.
 
-The financial crisis has also demonstrated the importance of housing markets.. and therefore it is important to study the housing market..
+Until recently, the house prices in Australia have been increasing, and homeowners made far more money just just in their sleep than in their day jobs. \cite{shiller1992market} questions for asset prices in general -- can we trace the movements back in a logical manner to fundamental shocks in the economy or as  \citet{clayton1996rational} puts it -- is this investor confidence or just a speculative enthusiasm \cite{clayton1998further} attributes the sharp run up in the prices, in part, to irrational expectations while \citet{shiller2000irrational} calls this as "irrational exuberance".
 
-The private households have high allocation of their total wealth ties to house
+However, according to \citet{sinai2005owner}, homeowners are born "short" of housing since they must live somewhere, and if they do not buy the house outright, they will have to rent the service on a regular basis in the spot market -- the rental market. As such, even though when the house prices on average are considered beyond affordable levels, there is a looming fear among potential home buyers arising from uncertain house prices that if they don't buy now, they might have to risk paying a higher price later since other market participants may buy and in turn increase the prices. Therefore, these homeowners feel forced to purchase and in turn drive the prices up\footnote{Some homeowners stay put either because they cannot afford at these price levels or few hope that the property prices will come down.} 
 
-The topic of persistence, market efficiency and predictability is highly significant for housing markets. More than half the net wealth of individuals in Australia consists of real estate of which home constitutes substantial part.Due to strong implications and consequences, increasing number of market participants are interested in forecasting markets and hedging their risk exposure. Therefore a closer look at the persistence in Australian House prices is a worthwhile project.
+Hence, this is a classic example of game theory at play in the housing market where participants are rational, but are faced with a problem of prisoner's dilemma\footnote{The concept of the prisoners’ dilemma was developed by RAND Corporation scientists Merrill Flood and Melvin Dresher in 1950 and was formalized by Albert W. Tucker, a Princeton mathematician.}. In this situation, the market participants, even though they are completely rational, do not cooperate even if it is in their best interest to do so. This is understandable because, according to the utility maximization theory, homeowners negatively value the loss from paying a higher price more than they positively value the gain from paying the lower price relative to current price levels. 
+
+Now, if the property prices continue to rise further, some group of homeowners are unable afford and therefore drop out of the equation, but those who were waiting in anticipation of price fall, now decide to join the party and invest even though it may not be in their best interest. Thus, this pattern where at every price level homeowner act in accordance with the prisoner's dilemma continues to fuel the artificial growth in the housing market that does not necessarily corroborate with the inherent or intrinsic value of the housing market. 
+
+Apart from the problem of prisoner's dilemma faced by potential home buyers that fuels artificial demand, supply constraints are also at play that create demand shocks and put upward pressure on the prices \citep{Paciorek2013SupplyDynamics}. Due to lack of supply the house prices also rise..If the house price upward runs continues then at some point there are enough participants that cannot afford, and therefore the collective buying power of the market reduces which in turn forces the market participants to inevitably cooperate, and the market starts to slow down.
+
+sometimes the these forces of upward pressure on house prices due to the prisoners dilemma in conjunction with the supply constraints can cause the home buyers to make excessively leveraged investments in their homes. This can push the prices upwards beyond a certain threshold which can result in heightened house price values that are far from the long-term average, and that does not tie to the fundamentals. It looses the gravitational pull from the long term average that keeps the economy stable and hence the housing market could potentially have entered into state of housing bubble. The leverage homes that may seem to be affordable at that time but eventually turn out to unaffordable due to high volatility in variable interest rates and uncertainty of future income and this could trigger the bursting of the bubble and entry in the time of crisis.
+
+Since last year or so, the house prices in Australia have started declining and are on to a downward trajectory. Now, homeowners, and more so those who entered the market during the peak, are now fearing capital losses and equity reductions. These worries seem to be genuine because the losses are outside of the consumer control. Sometimes, the market powers of economics come into force that pull the house values down to long term average with dwelling values declining and depleting the housing capital gains and equity of homeowners. 
+
+%Here take the paper the direction of efficiency or persistence.
+
+At the heart of the matter the question is really about market efficiency, and in extension, entry-timing or predictability.
+
+Persistence is often discussed in the context of validity of the efficient market hypothesis \citep{schindler2014persistence} i.e. if the house prices are persistent over time then the housing market pricing process must be necessarily inefficient. 
+
+% motivations for the persistence
+Tests for persistence in the housing market is particularly important from an economic agent's perspective to know precisely what processes govern the house prices. According to \cite{larsen2008testing}, agents need not, cannot and should not compute optimal entry timing. If the markets are inefficient or persistent, then agent can benefit from optimal market entry.
 
 
+
+The Australian housing sector is one of the most overvalued in the world, leading to the household sector being one of the most indebted in the world. According to the international monetary fund IMF, Australia's high levels of household debt around 100 percent of GDP, has left it potentially exposed to global economic shocks or banking crisis. Given that more than 60\% of Australian bank's assets are tied to residential mortgages, banks remain uniquely exposed to this major risk as they are on the front-line of the property market and a rise in defaults will hurt profits while falling collateral levels may compel them to raise even more capital. Therefore, from the bank's perspective, it is important to not only assess the idiosyncratic risk of the individual borrower but also the geographic specific risks. The test of market efficiency at regional level enables banks to analyze the lending concentrations across regions.
+
+The banks transfer some of the risk of default on to the mortgage insurers via lending mortgage insurance (LMI)\footnote{LMI is a product designed to improve access to the home loan for a higher risk segment of the customer i.e. those who pay less than 20\% of the deposit towards their home purchase. LMI allows customers to purchase a home sooner and failure to obtain LMI would require increase in interest rates or make extension of credit difficult.} product. Hence, assessing the risk is also critical from mortgage insurers' point of view.
+
+For short selling to be effective, we need to have a strong handle on market timing..
+
+
+%justification for different gaps in persistence .. there issues are fourfolds here..
+The present literature has several gaps in testing for persistence in the housing market. %capital and rental market jutification..
+There are present value studies of asset market efficiency that compare the asset prices to the discounted stream of future rents. According to \citet{rosenthal1999residential}, such studies must be flawed as these studies are comparing the unobserved future rents. In order to completely test for persistence in the housing market, in addition to the capital market, we also need to test for persistence in the rental returns. There are no studies that explicitly test and compare persistence in the rental and capital market. 
+
+Most often researchers have sought to test whether the asset prices equal the discounted stream of expected future rents. Despite, enormous amounts of work in this area, the question of whether housing markets are efficient remains controversial. According to \cite{rosenthal1999residential}, the controversy is mainly is due to the fact that the fundamentals are unobservable. Also \citet{stiglitz1990symposium} points out that a direct response to unobserved fundamental is to seek indirect empirical evidence as a proxy for fundamentals to test for the violations of the present value relationship. Such studies use net present value of future expected rents to compare to the asset prices and are mainly based on the rationale that rents reflect, and can be proxies for, the fundamentals. However this assumption is only conceptual and empirically unproven. Despite the fact that rental market is the foundation on which the test of efficiency of capital market is based, there are no studies till date to our knowledge that test for the efficiency of such critical rental market\footnote{no data}. If future rents were representative of the fundamentals then rental market must obey the efficient market hypothesis. In our paper we perform the test of efficiency on the regional rental market using variance ratio analysis and find that xx\% of areas violate the efficient market hypothesis. Hence, if the rental market are themselves inefficient, the present value equality based studies will be biased. This further validates the controversial results from such studies.   
+
+
+%geographic justification
+According to \citet{rosenthal1999residential}, the implicit market for residential buildings is efficient and the inefficiencies in the housing market must lie in the market for the land itself and hence the prices of houses (including the building component in the house price index) should adjust themselves fast enough so as to eliminate any excess profit opportunities for builders. The inefficiency in the land market must be attributed to the heterogeneity in land. However land inherently has no heterogeneity. It is the spatial attribute of the land that provides its heterogeneity. Given that spatial attribute of the land is responsible for its efficiency in the pricing process, yet the national studies of persistence in the housing market test at state level or national level and ignore the local area or regional level tests.
+
+
+%property type justification.. house vs units...
+
+
+%frequency justification --- monthly or quarterly...these paper have studies efficiency on quarterly basis..
+Most studies that test for efficiency or persistence have examined the quarterly index changes e.g. \citep{Case1989125, hosios1991measuring, clayton1996rational}, among others.
+
+
+
+%The study of persistence is also important from many other perspectives....
+
+
+
+raise the question of why not just looking at persistence 
+
+
+
+%why persistence by house unit or by geography...
+%.....
+
+
+
+Banks/lenders can asses the persistence in different markets and decide on the direction of the loan flows on the book.
+
+This paper serves a very important purpose from the risk management standpoint of Bank/lenders, government organization and other policy makers. It's contribution is fourfold. First we test for persistence not only for the capital but also for the rental market. Second we look at persistence by property both property types -- houses and units\footnote{We also provide persistence results for aggregate level - all dwellings in the appendix}. Third we analyze how the persistence changes if we test at different frequencies. Therefore we test for not only quarterly but also monthly\footnote{The CoreLogic rich data set allows us to test for persistence even at monthly levels with good confidence as CoreLogic collects data for 98\% of house sale transactions in Australia. and this greater coverage provides the necessary liquidity to test for persistence even at monthly levels.} frequency. Lastly but most importantly we also provide cross sectional view of persistence across regions geographies.
+
+The cash rate in Australia has been on hold for the last two years which is the longest period of constant cash rate on record. This is mainly attributed to several factors such as stubbornly low inflation, record high household debt, slack labour market and, more recently declining dwelling values.
+
+While the cash rate has been remained stable, mortgage rates have been tweaked, the extent to which depends on the borrower and the loan product type. For example the average standard variable mortgage rate has actually reduced by 5 basis points for owner occupiers and increased by 30 basis points. Three years fixed rates for investors have increased by 10 basis points and discounted variable rates are up by 40 basis points for investor loans. Additional mortgage rate premiums are payable for borrowers who aren't paying down their principal. The stability in cash rate perhaps encapsulates deepening complexities in mortgage products brought about by heightened level of regulations and focus from both lenders and policy makers on improving credit quality. 
+
+With such scenario around us, there is increasing level of risk.. the banks are providing discriminatory rates around type of loans and therefore the analysis of persistence across geography and by property type at granular levels can enable banks and other lenders to more accurately assess risk factors and use the persistence as the risk factor to account for the risk attributed due to the inefficiency in the corresponding housing markets. Therefore this also adds to the reason for why persistence measure is important..
+
+
+%%%% this is interest para that strenghtens the motivation for banks risk and therefore need for test of market efficiency..
+Given more than 60 per cent of Australian bank assets are tied to residential mortgages, Australian banks are (almost) on the front-line of the property market and a rise in defaults will hurt profits while falling collateral levels may compel them to raise even more capital.  
+
+APRA has made it clear in its submission to the commission that it expects banks to better reflect household living expenses and mortgage interest payments, in their calculations on how much they lend.
+
+Housing markets are typically characterized by high transaction costs, low volumes, carrying cost, tax issues, asymmetric information, and non-standardized, heterogeneous commodities \citet{schindler2014persistence}. These factors could potentially lead the housing market to be less efficient as compared to other markets, consequently resulting in more persistent and predictable house price returns. Nevertheless, the topic of market efficiency or persistence is equally significant for Australia where owning a home is considered an Australian dream. 
+
+Most authors have looked at the 
+ There may be inter-regional variations and therefore, we look at persistence across all regional levels to test if there is persistence across inter-regional levels.
+In this paper, we look at city wide
+
+this is the update from tim lawless..
+The decision to keep the official interest rate on hold marks the two year anniversary of the last change to the cash rate by the RBA; the longest period of interest rate stability on record.  The steady rate setting has a lot to do with stubbornly low inflation, record high household debt, a slack labour market and, more recently, falling dwelling values.  Financial markets continue to expect that the cash rate will remain unchanged until at least January 2020. 
+ 
+While the cash rate has remained stable, mortgage rates have been tweaked, the extent to which depends on the borrower type and loan product.  Over the same period of cash rate stability, the average standard variable mortgage rate has actually reduced by 5 basis points for owner occupiers and increased by 30 basis points for investors.   Three years fixed rates for investors have increased by ten basis points and discounted variable rates are up 40 basis points for investment loans.  Additional mortgage rate premiums are payable for borrowers who aren’t paying down their principal.  Clearly the stability in the cash rate hides a deepening complexity in mortgage products brought about by the heightened level of regulation and focus from both lenders and policy makers on improving credit quality.  
+
+Despite the housing market headwinds from tighter credit conditions, the prospect of mortgage rates remaining reasonably stable should help to keep a floor under housing demand. 
+
+
+2nd
+
+Economic conditions remain reasonably stable, housing market growth continues to slow, household debt is at record highs, and inflation remains around the lower end of the RBA target range.
+ 
+With this scenario as a backdrop, the hold decision today from the RBA was widely anticipated.  It is looking increasingly as if the cash rate will hold at record lows throughout 2019; this is the view of financial markets where the ASX cash rate yield curve indicates the cash rate will remain on hold until at least November 2019.
+ 
+However, focus is now moving to mortgage rates, where we are increasingly seeing upwards pressure from overseas funding costs. Already, smaller banks and non-banks, who are generally more exposed to wholesale debt costs, are pushing interest rates higher for select mortgage products.
+ 
+Larger banks, who are more reliant on domestic deposits to fund their home loans, have less exposure to higher funding costs. However it is likely margin pressures are becoming evident across the big end of town as well. 
+ 
+Despite these early signs of some upwards pressure on mortgage rates, average variable rates remain almost 120 basis points below their decade average of 6.4\%. Borrowers, particularly owner occupiers with principal and interest loans, should continue to expect a low mortgage rate over the medium term.
+ 
+
+
+
+
+
+
+
+The total value of residential property market in Australia is estimated at around \$6.9 trillion of which the total outstanding mortgage debt is \$1.7 trillion resulting into per-capita debt of \$70,451 \citet{abs}. With such large amounts of wealth being tied to housing, households are placed under significant repayment burden and default risk. Due to the strong implications and consequences on the financial system and economy, many banks, building societies and other mortgage lenders are exposed to risks and are therefore interested in forecasting the house prices and hedging their risk exposure. Even private homeowners who have a high allocations of their total wealth tied to home or investors who are speculating in making financial returns could potentially benefit from hedging their risk exposure. The financial crisis has also highlighted the importance of housing markets. Understanding the turning points in the housing prices and home onwers' reaction to the change has great implications in identification of bubble formations. Therefore, the topic of persistence is critically important from the standpoint of risk mitigation not only for banks, lenders or private households but also for the national economy. 
+
+This is from scott.. the topic of persistence cannot help bank in changing the existing loan book but it can help banks in organising the flow of funds. So for example, with inter-regional level persistence  tests. banks can take exposure in their loan books based on regions where the prices are more efficient or prices follow random walk. Such area are those where prices are fully reflective of their past and  if banks take exposure in areas where there is persistence then that indicates that the past prices are not 
+
+people typically have good view of their financial status and are are aware of their finanical status and obligations. They are also aware of have good sense of the market directions in the short terms and therefore the prices in short terms are more reflective of the fundmentals. This implies that the varaince of the single period returns is the best reflector of the market dynamic attributed to the fundamentals. With the fundamentals in place or constant, the varaicne of higher period returns (at optimal lags) to the is expected to increase in proportion to the interval period. the variance ratio in our test is calculated as the ratio of variance of q period return to q times the single period return. in line with the fundamentals, this ratio is expected to be one to satisfy the random walk property. For regions where variance ratios are significantly greater than one suggest that the persistence in the returns. In other words these areas have inefficient pricing process since the the variance or the dynamic is greater than that could be explained by the fundamentals and reflects regions with higher risk. On the other hand, in regions where the variance ratios is not significantly greater than one, suggests that the market dynamics in these regions at higher intervals is reflective of the fundamental single period dynamics and hence the pricing process is considered more efficient.
+
+
+    Question to research in literature - why do banks care persistent returns see comparison in stock markets. in literature..
+
+
+Explain the current economi scenario for banks and rba...this is good for building introduction and motivations for paper...
+something like this.. the current market scenario is that the with house price already quite high,,,rba reduced the rates and that allowed more and more demand for housing loans mortages.. can give figures..and statistics here... now the house prices have soared to high levels and with rba is stuck with low rate and there is a mounting upward pressure on interest rates but rate is now stuck as it cannot increase rates as a samll increase in rates will throw many household on variable interst loan out of pocket and unable to sustain their mortgage rpayments.. Now the only hope for rba is that if the markets forces of demand and supply can ease the steam of house prices and bring it down to lower levels.. 
+
+haresh .. here is an idea ... there will be a lot of content material that you can take from tim lawless narrative marketing story.. from corelogic market highlights... they publish a lot of market highlights and story... use some of that economic content here...
+
+
+
+
+
+
+
+
+
+
+
+
+Additionally, Due to the idiosyncrasies of each region, the risks faced by banks and other lenders vary across regions, and some are more prone to risk than others. Identifying areas with less risk can allow banks and mortgage lenders to diversify their unsystematic risk by reducing their exposure to high-risk areas vice-versa. In our paper, we study persistence not just at a nationwide level but also various statistical geographic levels, for both houses and units and at monthly and quarterly frequencies. As such, our study of persistence across regions can allow banks/lenders to diversify their portfolio of housing finance commitments thereby reducing their exposure to high-risk areas and increasing exposure to high returns areas.
+
+Furthermore, with rising house prices, particularly in Australia's capital cities, purchasing a property has become less affordable resulting in declines in the liquidity of the housing market which consequently affects the efficiency of the pricing process. For investors who cannot afford to buy a house can take exposure in the housing market through investments in Real Estate Investment Trusts (REITs). Additionally, there is also a rise in market players where homeowners can purchase a share of the property instead of the whole house. Therefore a closer look at the pattern of the house prices can enable these investors to make higher returns.
+
+To be continued...
+
+Understanding of persistence has important implication for housing dynamics
+
+
+According to \citet{Linneman1986AnMarket}, a housing market is subject to highly disperered information sets. That is the buyers and sellere in the market posses a wide range of estimates of the value of real estate in the market. While these estimates may be unbiased, experts agree that market ageet have relatively large variances in their estimates of the real asset value of housing units in comparison with the variances of the estimated asset values for corporate capital. Further, the variacne of any individual trader's value estiamte is generally percieved as higher for residential real estate than coporate capital. That is the housing market can be characterised as having relatively disperesed asset value estimates both across market participant and for any single market p particiant.
+
+
+Most use market model approach or forecast aproach. 
+
+felix schidler uses variacne ratio approach. however we use an enhanced version of their approach where we apply bootstrapped simulation for eliminating small sample deficiencies.
+
+
+
+
+%According to a recent study by Organization for Economic Co-operation and Development \cite{oecd}, Australia's average debt stands at 201 percent of the total disposable income ranking fifth in the world behind Denmark, Netherlands, Norway and Ireland. Of the total debt, around 56.3\% is the mortgage debt on owner occupied housing. 
+
+Australia's high levels of household debt leave it potentially exposed to a global economic shock or a banking crisis, the International Monetary Fund has warned.
+
+
+Australia's high levels of household debt leave it potentially exposed to a global economic shock or a banking crisis, the International Monetary Fund has warned.
+
+Key points:
+
+Australia's household debt is amongst the world's highest, around 100pc of GDP
+Average developed nation household debt is 63pc of GDP
+IMF concludes that higher household debt raises the risks of financial crises
+An IMF study into highly leveraged households and financial stability singles out Australia, where household debt has risen to 100 per cent of GDP, well ahead of other advanced economies where the ratio is much lower at 63 per cent.
+
+"Higher growth in household debt is associated with a greater probability of banking crises," according to the IMF's latest Global Financial Stability Report.
+
+"New empirical studies — as well as recent experience from the global financial crisis — have shown that increases in private sector credit, including household debt, may raise the likelihood of a financial crisis and could lead to lower growth."
+
+The IMF warns the global level of household debt "remains high by historical standards" and "has kept growing in other advanced economies such as Australia and Canada".
+
+While the report noted that debt can be positive in the long term, it cited research showing that high household indebtedness can cause "a significant debt overhang when a country faces extreme negative shocks".
+
+"The global financial crisis suggests that high household debt can be a source of financial vulnerability and lead to prolonged recessions."
+
+Developers and builder in one way or another, exploit overpricing, increasing effective supply, in that way bringing real estate prices down.
+
+edward miller 1977, journal of finance, that the efficient market require the possibility of selling short. In the stock market for example, with short selling, people who think the market is overpriced and headed for a fall can borrow shares and sell the borrowed shares at the current high market price. if shares do indeed fall, they can buy the shares back at a lower price and repay the loan, with a profit.
+
+Short selling helps prevent bubbles from forming, but negative bets cannot occur easily in the housing market. you cant routinely buy a house a sell it, promising to buy back the same house later to repay the loan.
+
+markets without the possible to playing these negative bets will be inefficient, that's because it is not possible to sell short. The smart money can do no more than just avoid holding an overpriced asset. Canny traders are forced to sit on the sidelines and watch in futility as prices decline in as they expected. Without short sellers, there is nothing to stop a group of ignorant investors to purchasing the over prices asset.
+
+The REITs do not have a consistent correlation with the 
+
+
+The present paper provides a novel approach to testing persistence in several regions across Australia. The remainder of the paper is organized as follows. Section II provides a review of the literature. Section III presents the methodology. In section IV, we describe the data and provide the summary statistics of the index returns. Section V, presents and discusses the results. Section VI concludes.
+
+
+Our work contributes to the existing literature in several ways. First, considering that the persistence in housing market returns is extensively analyzed, the assessment of rental market represents the novel aspect of our work. Furthermore, the domestic capital market persistence has not been tested for Australia previously and so in that regard also, testing capital market persistence also contributes to the literature. Additionally, while other studies have examined persistence for houses, mainly at quarterly returns, we examine persistence for both houses and units separately at both monthly\footnote{Corelogic's Hedonic Price index is based on a rich dataset as CoreLogic records approximately 97\% of total housing sales in Australia that enables us to measure persistence at monthly level with reasonable confidence.}.  
+
+The main finding can be summarised as follows: 
+
+The remainder of the paper is organised as fgllows. ...
+
+
+A distinction is typically made following Fama (1970) and Fama (1991): A market is considered weak-form efficient if no economic profits can be made based on past price series; this includes all information related to prices, such as the returns series as well. In a semistrong-form efficient markets also cover weak-form efficient nes. This also includes, however, any knd of information about the company's accounts, balance shett, income sttement, statement of cash flows , management or any other communication made by or about the firm in a public forum. The strongest claim wol be that markets are strong-form efficientt. here, even private inforamtion cnnot lead to economic prifits as it too has been priced in typically throught arbitraghe by insiders.
+
+
+\section{Real Estate Market}
+
+change this in the context of houses and units..
+
+The term 'real estate maret' can mean different things to different perople. When we talk about efficiency ofthe real estate market, we have to b precise by what we mean by the real estte market. This is particularly improtant when reviewing empirical studies snce their results may be contigent upon their definition and emplirical selection of real estate market.
+
+In economicterms it can be seen as the market where suypply of and demand for real estate meet and where real estate is traded. This abstract defibnition leaves open a number of questons. the real estate market is typcially segmented into various submarkets along differtnt dimension. The most important dimensions are type of real estate, space and time. An office building traded in Sydney in 1960 is clearly no in the same real estate submarket than an apartment building traded in the suburbs of Victoria in 2005. But where are the boundaies delineating these submarkets? How close in terms of type, location and time do transaction have to be in order to be condidere to belong to the same real estate market?
+
+Various type of real estate exist, each of them posing specific challenger and issues for investor and analysts. Important types are housing office, shopping centres, industrial building and infrastructure real estte. A very pecial type that is quite differnet from all the other is undeveloped land. Easch of these ctegories is quite heterogeneous in itseld. For example, the office building category includes both high rise structures located in central business distructs and one story doctors; offices laocted in rural areas.
+
+When we look more closely into the housing category, for example we find single unit and multi unit housing where the latter case the real estate market can be view from theperspective of the individula units or the multi unit buildign s a whole. The results may be differnt whether we consider traactions of individual units or buying ans selleing of whole apartment buildings. At the level of the individual unit, transaction can be of different types. Transafer of ownership and rental agreement are probably the tow most important ones. In the case of the renetal market the quirtestion arisis whether only new rental agreement represent the rel estate market or also the much larger number of already existing rental agreements.
+
+At the more aggregate leve lof the biulding market transaction can again take place at differnt level. It can be single phusical object that is traded or a portfolio of objects. In the latter case, the portfolio may consist of differnt types of real estat. Trasactions of portfolios of real estate are often not done directly, but in some packaged form. Frequently, it is the company owning the portfolio of real estate that is traded so that other characteristics of hte ompany may influence the deal as well. if the ocmpany is publicly listed, the trading of its shares. although obviously taking place on the finacial market can also be considered a real estate market trasaction.
+
+Since the respective submarket are more or less related, all these differentiation bvy type, space and time have potential impliction for judjhing the efficiency of the real estate market. It can be arued that in an efficient market the prices at a more aggregate levbel should fully reflect the prices at the respective disaggreate level . So, the value of share of real estate companies hsould reflect the value of their respective portfolios; the price of a portfolio should refect the value of the building it contains; the price of abuilding should reflect the value of the rent generated by its individual units. Similar argument can be made for the relationship btween tyupeso real estate between spatial submarkets and over time. Empirical test of the efficiency ofthe real estate mrket typcially focu on one of these aspect in one submarket. In order to judge the relevenace of these empirical result, it is therefore necessary to clearly identify the foucs of the respeictive studies. This will be done on secvtion4 of the paper;.
 
 
 \section{Literature Review}
 
-The research on persistence in house price return is often discussed in the context of the validity of market efficiency. 
+The understanding of persistence has long been a key topic in the area of finance. Research in this field has been vast, varied and covers a wide range of markets. The topic of persistence is often considered in the context of validity of the efficient market hypothesis. Many researchers have identified different methodologies that can be broadly grouped into four categories. Studies that test the present value hypothesis i.e. the quality-adjusted house prices must equal the present value of their dividends or rents (fundamental value) \citep{meese1994testing, clayton1996rational, clayton1998further}; papers that examine whether the house prices have time structure or serial correlation at lags \citet{Case1989125, hosios1991measuring}, and are therefore predictable; and papers that define changes in house prices as functions of changes in their real determinants (e.g. income, employment, net migration, etc.) and more recently, studies that test for excess variance at higher order lags. 
 
-\citet{elder2012persistence} examine the return and volatility of the S\&P Case Shiller real estate index for evidence of long memory in the form of fractional difference. They find evidence of very persistent long memory in both the return and volatility of real estate index. They suggest that long memory in real estate returns implies future asset return are predictable at long horizons, potentially violating weak form of efficiency.
+%efficiency with present value models
+\citet{clayton1996rational} and \citet{meese1994testing} both, find that the house values deviate from the fundamental values in the short run, although the present value relationship appears to hold in the long run. 
+
+\citet{clayton1998further} These finding have important implications for appraisals and mortgage underwriting process. In the booming market, property may be overvalued and hence its market value may exceed intrinsic or fundamental value. Given the inevitability of the market correction, speculators can use it to their advantage by selling.
+
+\citet{Hjalmarsson2009EfficiencyDiscount} test for efficiency in the Swedish housing market using present value relationship but in co-operative housing setting. In the Swedish housing market for co-op housing, the sales price of the house represents part of the housing value. The other part is paid in the form of co-op rent. Thus if the housing market is efficient, there should be an inverse one-one relatioship between the present value of future rents and the sales price. Thus if the present value of discounted rents increase by one unit, the sale prices should decrease by one unit. They find that for every 100 kroner increase in the rent, the sale price decreased by 75 Kroners.
+
+
+%efficiency with time structure/lag models
+
+\citet{Case1989125} and \citet{hosios1991measuring} find a serially correlated structural relationship across lags on quarterly house price index changes which implies that future house prices are forecastable. Similarly, 
+
+These finding suggest that the markets are inefficient and imply the presence of arbitrage opportunities on a risk-adjusted basis..
+
+%efficiency with building construction models.. rosenthal..
+
+\citet{rosenthal1999residential} provides an alternative approach to testing efficiency of housing markets. \citet{rosenthal1999residential} suggests that for housing markets to be efficient, the price of residential buildings should satisfy two conditions. First the deviations between new building prices and construction costs should disappear faster than the time taken for construction, and have no effect on construction. Secondly temporary building price shocks should dissipate at similar rate for different vintage buildings. The author finds that the housing market for residential buildings is efficient.
+
+
+% this para is for justifying the persistence testing in units...
+Also most of the research on efficiency is based on single-family detached dwellings and there is little research on multi-family dwellings such as units. \citet{clayton1998further} studies efficiency of condominium apartments in vancouver british columbia and find strongs evidence against the market efficiency. the author suggests that there is a sharp run-up in house price which is in part due to irrational expectations, and thus signal a correction in the house prices as house values must reflect the fundamentals.
+
+%persistence with lag models/time structure lag models
+
+%persistence with present value models
+
+%Persistence with variance ratio models...
+
+
+
+
+
+
+
+
+  \citep{Fama1970EfficientWork} presents a thorough discussion of both theoretical issues and empirical tests of efficient market hypothesis.  \citet{Case1989125} identifies the housing market for single-family home is not efficient and that the year-to-year changes are followed by changes in the same direction and hence suggests that there is a profitable trading rule for individuals who are free to time the market.
+
+
+often looked at in the context of validity of the efficient market hypothesis. The 
+,
+
+There are studies that compare the asset prices to unobserved discounted streams of future rents. give examples....
+
+
+
+
+Our study touches two strands of literature: One that looks at persistence in the house prices and another that studies the efficient market hypotheses. The research on persistence in house price return is often discussed in the context of the validity of market efficiency. The research on both persistence or efficiency is vast and that the presence of persistent returns in housing capital market is well documented for most advanced countries.
+
+
+\citet{elder2012persistence} examine the return and volatility of the S\&P Case Shiller real estate index for evidence of long memory in the form of fractional difference. They find evidence of very persistent long memory in both the return and volatility of real estate index. They suggest that long memory in real estate returns implies future asset return are predictable at long horizons, potentially violating weak form of efficiency. To be continued...
+
+
+
+
+
+According to \citet{meese1994testing}, the present value relationship implies that the house prices and and capitalized rents have a common trend i.e. they are co-integrated. 
+
+The house price is the present value of all the future rents for the housing services. Households who do not own a house have to rent, purchasing the housing services in the spot market.
+
+Consistent with \citet{meese1994testing}, we find that there is higher persistence in housing market capital returns as compared to the rental market which suggests that the efficiency in the housing market 
+
+There is high transaction costs in the capital market relative to rental (spot) market and therefore we find that there are less regions with price efficiency in the capital market as compared to the rental market.
+
+According to \citet{}
+
+draw a matrix of tstats for both capital and rental plot using scatter plots and then compare how many do not conform to efficiency matrix...
+
+According to \citet{glaeser2017extrapolative}, the house prices display three features present in the data but usually missing from perfectly rational models: momentum at one-year horizons, mean reversion at five-year horizons, and excess longer-term volatility relative to fundamentals. This is consistent with a finding where we find several regions with varaince ratios greater than one i.e. the variance of house price returns at longer horizons is much greater than the variance at 1 period returns which represents the current fundamentals.
+
+This is also consistent with our results that short term momentum and longer terms mean reversion leads to persistent returns.
+
+So our results also fit with the  the extrapolative model of \citet{glaeser2017extrapolative}
+
+while housing bears many similarities to other financial assets like stocks, there are important differences that motivate key asumption in our model. There is no single, posted price in housing markets that is comparable to the maket price of a share of stock. Therefore we use the market index to represent the housing market prices.
+ past price data are available only with a significant lag. The buying is done almost entirely by non professionals. Short sales are impossible and is can be costly for a single large investor to buy and hold large amounts of single famuli housing. 
+ 
+We use hedonic indices instead of repeat sales indices which could potentially have serial correlation problem \citep{Case1989125,kuo1996serial}. \citet{Linneman1986AnMarket} also uses the hedonic indices does not reject the hypothessi of semi-strong form of market efficiency. 
+\citep{glaeser2014housing} shows mean reversion and excess volatility in house prices.
+
+\citet{glaeser2017extrapolative} builds an extrapolative model of house price dynamics that displays three features: momentum, mean reversion and excess volatility. According the model the home buyer make modest approximation about the expected price that leads house price to expect increase in the market value of their homes after recent increases.
+
+
+The employment of hedonic indices can help with alleviating some of the problems with the repeat-sales indices. For example, bias from inherent ripple effects \citet{sommervoll2006temporal}, sample selection bias and compositional bias from aggregating sub-indices of different house types \citet{dombrow1997aggregation}.
+
+\citet{glaeser2017extrapolative} Housing is an unusually heterogeneous and democreatic asset, which means that models that start from the institutions of equity markets will not match the institurions of housing market and vice-verse. For example it is far easier to sell short stock than to sell short housing . It is also far more efficient to buy large amounts of stock thant ot buy large amount of single family detached housing, since the divident flow from owning a house comes from living in that house. There is not on unique price of housing, and it is usually impossible to know, exactly, the current maket price of any particular house. All of these feature suggest far more ignorance in models of housing than in model of equities.
+
+excess volatility  (shiller 1981)
+
+There is within-region heterogeniety in persistence/ The degreee of efficiency is different in differnt casses.
+
+\citep{Liu2016HousingDynamics} develop a model based on the assumption that different cities do not have any differences in their response to bubbles in a rising market but there is strong heterogeniety in the falling markets.
+
+\citep{Liu2016HousingDynamics} points out that most previous studies implicity assume away within-city variation in house prices volatility in response to a bubble typically without any conceptual justification.  To this efffect, with a same token, we examine persistence accross regions and not just a national level.
+
+
+
+Most studies assume away within city heterogeniety in persistence. We provide a comprehensive survey of persistence across all regions.
+
+
+
+There is a stated beliefs 
+
+
+
+\citet{AGNELLO2011171} suggests that the recent housing booms have been the longest in the past four decades and that the domestic credit and interest rates have significant influence on the probability of occurrences of booms and busts. The authors also suggest that international liquidity plays a significant role in occurrence of housing boom and in conjunction with banking crisis for busts. They also find that the deregulation of the financial markets has a strong influence on the occurrence of booms\citet{AGNELLO2011171}.
+
+Australia's house prices have soared over the last decade. which basically is the boom. The house prices in the US soared from 1990, \citet{AGNELLO2011171}. And it turned out this was mainly due to strong financial innovation. However,  as it turned out, insufficient risk management, lack of transparency, poor incentives, and increased leverage.
+
+
+Housing market plays an important role in the financial and economic stability of the nation. Persistence is the crucial component booms and bust of the housing market that has ripple effects on the stability of the economy.
+
+The continued persistence in the housing market has strong implications for the financial crisis and calls for monetary and regulatory policy makers to take account of the emerging housing/asset price booms in their policy assessment and develop early warning signals for their identification.
+
+\citet{AGNELLO2011171} defines booms as the price rises of major duration and amplitude that deviate significantly from long term trends. 
+
+Persistence is driven by fundamental factors but they are compounded by altered market expectations and even speculative motives. Persistence has significant economic effects by showing momentum and higher demand in the period of growth and decline in sluggish market.
+
+From a policy perspective, persistence in house price returns is critically important as it explains the inefficiency in the house price process and helps in deciding the macro factors.
+\citep{AGNELLO2011171}
+
+Persistence in house prices also have implication on the booms, and in conjuction with the banking crisis, busts. 
+
+
+Our work contributes to the existing literature in several ways. First we provide a comprehensive characterization of persistence in house price returns for both, houses and units across regions at different geographic levels for monthly and quarterly frequencies. Second we extend the research for rental market that has not been studied before for persistence.
+
+The knowledge of persistence is important for investors and policymakers as it can help predict the turning points in the housing market.
+
+
+So far Only few papers have used rental market and attempted to examine persistence using price to rent ratio but empirical evidence on examining persistence in Australian housing market is scarce and perhaps non-existent for rental market anywhere in the world.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,13 +475,15 @@ The research on persistence in house price return is often discussed in the cont
 
 \section{Methodology}
 
-In our study we analyze price persistence under the hypothesis that price changes are unpredictable and by examining whether or not prices follow a random walk. If the price changes were correlated with the past, then we could predict the future returns based on the past returns. Under the random walk hypothesis, a non-predictable random mechanism generates the behavior of price changes. In the simplest form of random walk model, the current index $I_t$ equals the previous index $I_{t-1}$ plus the realization of random term $\epsilon_t$
+
+
+In our study we analyze the persistence in the house price returns under the null hypothesis that price changes are unpredictable and by examining whether or not prices follow a random walk. If the price changes were correlated with the past, then we could predict the future returns based on the past returns. Under the random walk hypothesis, a non-predictable random mechanism generates the price change process. In the simplest form of random walk model, the current index $I_t$ equals the previous index $I_{t-1}$ plus the realization of random term $\epsilon_t$
 
 \begin{equation} \label{eq: a}
     I_t = I_{t-1} + \epsilon_t ,
 \end{equation}
 
-where $I_t$ is the natural logarithm of the index and $\epsilon_t$ is a random disturbance term at time $t$ such that $E[\epsilon_t] = 0$ and $E[\epsilon_t\epsilon_{t-h}] = 0$, $h \neq 0$ for all $t$. If the expected index changes are given by $E[\Delta I_t] = E[\epsilon_t] = 0$, the best linear estimator for index $I_t$, is the previous index value $I_{t-1}$. Under the assumption that expected index changes $\mu$ constant over time, the random walk model expands to a random walk with drift
+where $I_t$ is the natural logarithm of the index and $\epsilon_t$ is a random disturbance term at time $t$ such that $E[\epsilon_t] = 0$ and $E[\epsilon_t\epsilon_{t-h}] = 0$, $h \neq 0$ for all $t$. If the expected index changes are given by $E[\Delta I_t] = E[\epsilon_t] = 0$, the best linear estimator for index $I_t$, is the previous index value $I_{t-1}$. Under the assumption that expected index change $\mu$ is constant over time, the random walk model expands to a random walk with drift
 
 \begin{equation}
 \label{eq: b}
@@ -125,28 +493,31 @@ where $I_t$ is the natural logarithm of the index and $\epsilon_t$ is a random d
       \end{gathered}
 \end{equation}
 
-The random walk implies uncorrelated residuals and hence uncorrelated price changes, $\Delta I_t$; $\epsilon_t ~ i.i.d.(0, \sigma^2)$ denotes that the increments $\epsilon_t$ are independently and identically distributed (i.i.d) with $E[\epsilon_t] = 0$ and $E[\epsilon_t^2] = \sigma_\epsilon^2$.
+The random walk implies uncorrelated residuals and hence uncorrelated price changes, $\Delta I_t$; $\epsilon_t \sim i.i.d.(0, \sigma^2)$ denotes that the increments $\epsilon_t$ are independently and identically distributed (i.i.d) with $E[\epsilon_t] = 0$ and $E[\epsilon_t^2] = \sigma_\epsilon^2$.
 
 
             
-            heirarchy
+        %    heirarchy
             
-            variance ratio test statistic -- This is the main statistic
+        %    variance ratio test statistic -- This is the main statistic
             
-            Auto variance ratio test -- Auto stands for automatic selection of optimal lag based on data dependent procedure. The lags here correct for the serial correlation
+        %    Auto variance ratio test -- Auto stands for automatic selection of optimal lag based on data dependent procedure. The lags here correct for the serial correlation
             
-            then bootstrap auto variance test -- the boostrapping here correct for the heteroskedacity..
+         %   then bootstrap auto variance test -- the boostrapping here correct for the heteroskedacity..
             
-            then wild bootstrap auto variance ratio test -- the wild is the usage of normal distribution used for creating bootstrapped sample..
+         %   then wild bootstrap auto variance ratio test -- the wild is the usage of normal distribution used for creating bootstrapped sample..
 
 
 
 \subsection{Variance Ratio Test of Random Walk}
-            
-The traditional random walk tests on the basis of serial correlation and unit roots are vulnerable to errors due to autocorrelation induced by non-synchronous and infrequent trading. A discussion on this topic with respect to house price indices with a small sample size can be found in \citet{karl1989efficiency} and in Kuo (1996), respectively. To resolve this shortcoming (for financial time series), \citep{lo1988stock}, \citep{lo1989size} developed tests for random walks based on variance ratio estimators.
 
-The variance of the increments of a random walk is linearly time-dependent. Thus, if the natural logarithm of index $I_t$ follows a pure random walk with drift (Eqn. \eqref{eq: b}), the variance of index returns should increase proportionally to the interval q. Suppose a series of nq + 1 price observations ($P_0, P_1, P_2,...,P_{nq}$) measured at uniform intervals is available. If this time series follows a random walk, the variance of the qth difference will correspond to q times the variance of first differences. Following the models of Eqs. \eqref{eq: a} and \eqref{eq: b}, the variance of the first differences, denoted as $\hat{\sigma}^2[I_t - I_{t-1}]$ and $\hat{sigma}^2[r_t]$, respectively, grows linearly over time so that the variance of the qth difference is 
+The variance ratio test of efficiency has clear advantages over the classical present value relationship studies. One that, unlike present value relationship studies it does not rely on the unobservable fundamental value or any exogenous variable. It simply tests the efficiency using the property that the variance of random walk increments increase proportionally with the length of the interval between the increments.
 
+%% the also give advantage of this method over serial correlation methods..
+
+According to \citet{schindler2014persistence}, the traditional random walk tests on the basis of serial correlation and unit roots are vulnerable to errors due to autocorrelation induced by non-synchronous and infrequent trading. With respect to house price indices, a further discussion on the topic with a small sample size can be found in \citet{karl1989efficiency} and \citet{kuo1996serial} respectively. To resolve this shortcoming (for financial time series), \citep{lo1988stock}, \citep{lo1989size} developed tests for random walks based on variance ratio estimators.
+
+The variance of the increments of a random walk is linearly time-dependent. Thus, if the natural logarithm of index ($I_t$) follows a pure random walk with drift (Eqn. \eqref{eq: b}), the variance of index returns should increase proportionally to the interval q. Suppose a series of nq + 1 price observations ($P_0, P_1, P_2,...,P_{nq}$) measured at uniform intervals is available. If this time series follows a random walk, the variance of the qth difference will correspond to q times the variance of first differences. Following the models of Eqs. \eqref{eq: a} and \eqref{eq: b}, the variance of the first differences, denoted as $\hat{\sigma}^2[I_t - I_{t-1}]$ and $\hat{\sigma}^2[r_t]$, respectively, grows linearly over time so that the variance of the qth difference is 
 \begin{equation}
 \label{eq: c}
     \begin{gathered}
@@ -154,54 +525,31 @@ The variance of the increments of a random walk is linearly time-dependent. Thus
             or \\
           \hat{\sigma}^2[r_t(q)] = q\hat{\sigma}^2[r_t].
       \end{gathered}
-\end{equation}
-
-For the qth lag in $I_t$, where q is any integer greater than one, the variance ratio, VR(q), is defined as
-
+\end{equation}For the qth lag in $I_t$, where q is any integer greater than one, the variance ratio, VR(q), is defined as
 \begin{equation} \label{d}
     VR(q) = \frac{\hat{\sigma^2}[r_t(q)]}{q\hat{\sigma^2}[r_t]} = 1 + 2\sum_{h=1}^{q-1}(1-\frac{i}{q})\hat{\rho}(i),
-\end{equation}
-
-where $\hat{\sigma^2[\cdot]}$ is an unbiased estimator of the variance. The expected value of VR(q) is one under the null hypothesis of a random walk for all values of q. Since $I_t$ describes the logarithmic price process, $r_t(q)$ is a $q$ period continuously compounded returns with $r_t(q) \equiv r_t + r_{t-1} + ... + r_{t-q+1} = I-t - I_{t-q}$. $\hat{\rho(i)}$ is the estimator of $i^{th}$ serial correlation coefficient. Alternatively, values for VR(q) greater than one imply mean aversion while values smaller than one imply mean reversion. Equation \eqref{d} shows that VR(q) is a particular linear combination of the first h-1 autocorrelation coefficients with linearly declining weights. If index $I_t$ behaves like a random walk, VR(q) = 1 because $\hat{\rho}(h) = 0$ for all $h\geq 1$.
+\end{equation}where $\hat{\sigma^2[\cdot]}$ is an unbiased estimator of the variance. The expected value of VR(q) is one under the null hypothesis of a random walk for all values of q. Since $I_t$ describes the logarithmic price process, $r_t(q)$ is a $q$ period continuously compounded return with $r_t(q) \equiv r_t + r_{t-1} + ... + r_{t-q+1} = I_t - I_{t-q}$. $\hat{\rho(i)}$ is the estimator of $i^{th}$ serial correlation coefficient. Alternatively, values for VR(q) greater than one imply mean aversion while values smaller than one imply mean reversion. Equation \eqref{d} shows that VR(q) is a particular linear combination of the first h-1 autocorrelation coefficients with linearly declining weights. If index $I_t$ behaves like a random walk, VR(q) = 1 because $\hat{\rho}(h) = 0$ for all $h\geq 1$.
 
 Under the null hypothesis of a homoscedastic increments random walk, \citet{lo1988stock} derive an asymptotic standard normal test statistic for the VR. The standard z-test statistic is 
-
-
 \begin{equation} \label{e}
     Z_1(q) = \frac{VR(q)-1}{\sqrt{\hat{\theta}_1(q)}} =  \frac{M_r(q)}{\sqrt{\hat{\theta}_1(q)}} \stackrel{a}{\sim} N(0,1) ,
-\end{equation}
-
-
-where $\hat{\theta}_1(q) = \frac{2(2q-1)(q-1)}{3q(nq)}$, and $\stackrel{a}{\sim}$ denotes that the distributional equivalence is asymptotic.
+\end{equation}where $\hat{\theta}_1(q) = \frac{2(2q-1)(q-1)}{3q(nq)}$, and $\stackrel{a}{\sim}$ denotes that the distributional equivalence is asymptotic.
 
 Time series typically have time-varying volatilites, with returns deviating from normality. When index changes are conditionally heteroscedastic over time, there may not exist a linear relation across the observation intervals. Hence, \citet{lo1988stock} suggest a second test statistic $Z_2(q)$ with a heteroscedasticity-consistent variance estimator $\hat{\theta}_2(q)$ :
-
-
 \begin{equation} \label{f}
     Z_2(q) = \frac{VR(q)-1}{\sqrt{\hat{\theta}_2(q)}} =  \frac{M_r(q)}{\sqrt{\hat{\theta}_2(q)}} \stackrel{a}{\sim} N(0,1) ,
-\end{equation}
-
-with
-
+\end{equation}with
 $$ \hat{\theta}_2(q) = \sum_{j=1}^{q-1}\left[\frac{2(q-j)}{q}\right]^2 \cdot \hat{\delta}(j) $$
-
 and
-
 $$ \hat{\delta}(j) = \frac{\sum\limits_{t=j+1}^{nq}(I_t-I_{t-1}-\hat{\mu})^2(I_{t-j}-I_{t-j-1}-\hat{\mu})^2}{\sum\limits_{t=1}^{nq}(I_t-I_{t-1}-\hat{\mu})^2}  $$
-
 If the null hypothesis is true, the modified heteroscedasticity-consistent test statistic in Eq. \eqref{f} has an asymptotic standard normal distribution \citep{liu1991variance}. The $Z_2(q)$-statistic is robust to heteroscedasticity as well as to non-normal error terms. 
 
 The variacne ratio test of \citet{lo1988stock} considers one VR for a single aggregation interval q by comparing the test statistics $Z_1(q)$ and $Z_2(q)$ with critical value of a standard normal distribution. To implement the test, a choice of holding periods q should be made; e.g., a popular choice for daily return is 2, 5, 10, 20 40 and 2, 4, 8, 16, 32 for weekly returns. However these choices are arbitrary and made with little statistical justifications. In response to this, \citet{choi1999testing} proposed an Automatic Variance Ratio (AVR) test, in which the optimal value of q is determined using a completely data-dependent procedure. 
 
 If $Y_t$ is an asset return at time $t(t = 1,...,T)$, the AVR test of \citet{choi1999testing} is based on the statistic of the form
-
-
 \begin{equation} \label{g}
     VR(q) = 1 + 2\sum_{i=1}^{T-1}m(i/k)\hat{\rho}(i),
-\end{equation}
-
-where 
-
+\end{equation}where 
 $$ \hat{\rho}(i) = \frac{\sum\limits_{t=1}^{T-i}(Y_t-\hat{\mu})(Y_{t+i}-\hat{\mu})}{\sum\limits_{t=1}^{T}(Y_t-\hat{\mu})^2} \quad \textrm{and} \quad \hat{\mu} = \frac{1}{T}\sum_{t=1}^{T}Y_t, $$
 
 while $m(x) = \frac{25}{12\pi^2x^2}\left[\frac{sin(6\pi x/5)}{6\pi x/5}-cos(6\pi x/5)\right]$ is the quadratic spectral kernel. In order to choose the value of lag truncation point (or holding period) q optimally, \citet{choi1999testing} adopted a data-dependent method of \citet{andrews1991heteroskedasticity} for spectral density at zero frequency. The AVR test statistic with the optimally chosen lag truncation point is denoted as $AVR(\hat{q})$. 
@@ -213,52 +561,104 @@ For example, in presence of conditional heteroskedacity, \citet{mammen1993bootst
 In this paper, we employ the methodology of wild bootstrap for $AVR(\hat{q})$ as proposed by \citet{kim2009automatic}. The wild bootstrap $AVR(\hat{q})$ is conducted in three stages as below:
 
 \begin{enumerate}[i]
-    \item We form a bootstrap sample of T observations $Y^*_t = \eta_t Y_t(t=1,...,T)$ where $\eta_t$ is arandom sequence with $E(\eta_t) = 0$ and $E(\eta_t^2)=1$
+    \item We form a bootstrap sample of T observations $Y^*_t = \eta_t Y_t(t=1,...,T)$ where $\eta_t$ is a random sequence with $E(\eta_t) = 0$ and $E(\eta_t^2)=1$
     \item We calculate $AVR^*(\hat{q}^*)$, the AVR statistic obtained from $\{Y^*_t\}_{t=1}^T$; and
     \item We repeat (i) and (ii) B = 500 times to form a bootstrap distribution of AVR statistic $\{AVR^*(\hat{k}^*;j)\}_{j=1}^{B=500}$
 \end{enumerate}
 
-The above procedure is applied an asymptotically pivotal statistic (AVR), and approximates its sampling distribution under $H_0$ since $Y_t^*$ is serially uncorrelated sequence conditionally on $Y_t$. According to \citet{kim2009automatic}, these are the desirable properties that for a bootstrap test.
-
+The above procedure is applied to an asymptotically pivotal statistic (AVR). According to \citet{kim2009automatic}, since $Y_t^*$ is serially uncorrelated sequence conditionally on $Y_t$, approximates its sampling distribution under $H_0$ which is desirable property for a bootstrap test. The p-value for the test is the proportion of cases in which the variance ratio lies between the 95\% confidence interval of the bootstrapped distribution of variance ratios.
 
 
 \subsection{Independent Runs Test}
 
-The VR tests and the often applied autocorrelation methods are based on the assumption of a linear process and both approaches thus test for linear dependencies by definition when challenging the random walk hypothesis. It is hence important to apply a direct test. The non-parametric runs test examines the independence of successive price returns and does not require normality or a linear process. These characteristics of testing methods are particularly useful for investigating price changes of house price indices, which are frequentyly non-normally distributed.
+The Variance Ratio tests and more often applied auto-correlation methods are based on the assumption of a linear process and both approaches thus test for linear dependencies by definition when testing the random walk hypothesis. Hence it is important to apply a direct test. The non-parametric runs test examines the independence of successive price returns and does not require normality or a linear process. These characteristics of testing methods are particularly useful for investigating price movements of house price indices which are mostly non-normally distributed.
 
-A runs test determines whether the total number of runs in the sample is consistent with the hypothesis that price changes are independent. If the series of price changes exhibits a greater tendency of change in one direction, the average run will be longer and, consequently, the number of runs will be lower than when generated by a random process. In the Bernoulli case, the total number of runs is referred to as $N_Runs$ and the total expected number of runs is given by
-
+A runs test determines whether the total number of runs in the sample is consistent with the hypothesis that price changes are independent. If the series of price changes shows a greater tendency of change in one direction, the average run will be longer and, consequently, the number of runs will be lower than when generated by a random process. In the Bernoulli case, the total number of runs is referred to as $N_Runs$ and the total expected number of runs, under the hypothesis that price changes are independent is given by
 \begin{equation}
-    E[N_{Runs}] = 2n\pi (1-\pi) + \pi^2 + (1- \pi)^2,
-\end{equation}
+    E[N_{Runs}] = 2np (1-p) + p^2 + (1- p)^2,
+\end{equation}where $p = P(r_t>0) = \phi \left(\frac{\mu}{\sigma}\right)$, $r_t$ is the single period return,  $\mu$ is the expected index single period return, and $\sigma$ is the standard deviation of index returns. For large sample sizes ($N>30$), the sampling distribution of $E[N_{Runs}]$ is approximately normal and a continuity correction is produced.
 
-where $\pi = P(r_t>0) = \phi \left(\frac{\mu}{\sigma}\right)$, $\mu$ is the expected index change, and $\sigma$ is the standard deviation of index changes. For large sample sizes (N>30), the sampling distribution of $E[N_{Runs}]$ is approximately normal and a continuity correction is produced.
+When the actual number exceeds the expected runs number of runs which basically indicates that the length of the run is shorter and therefore the returns oscillate. On the other hand when the actual number is less than the expected number of runs, it indicates that the length of the run is longer. In the former, a positive Z-value is obtained indicating negative serial correlation and in the latter, a negative z-value indicates a positive serial correlation (or trend) in the series of index changes.
 
-When the actual number exceeds the expected runs, a positive Z-value is obtained and vice-verse. Consequently, a positive (negative) Z-value indicates negative (positive) serial correlation in the series of index changes.
+\section{Data and Region Summary Statistics}
+
+The data set used in this study is based on the CoreLogic's transaction-only capital and rental price hedonic indices, for both houses and units, at monthly and quarterly frequencies, in Australia from 2005 to 2017 spanning the global financial crisis cycle. The indices are available at the daily frequency for the following geographic levels: Nationwide, State, Greater Capital City, Statistical Area 4 and Statistical Area 3. The CoreLogic's indices are based on a hedonic regression model\footnote{The hedonic regression methodology is consistent across all geographic regions.} built using transaction price data as provided by the Valuer General\footnote{Valuer General in Australia is an independent body appointed by the state's governor that oversees the state's land valuation system.} post the completion of the property purchase\footnote{In fact, along with additional attribute date, CoreLogic receives most of the transaction price data upfront, from banks, mortgage lenders, real estate agent and property listings and then validated with Valuer General as their data flows in, which makes CoreLogic's indices accurate and timely.}. 
+
+While most previous studies carry out analysis at the quarterly frequency, due to CoreLogic's rich data-set, we are able to conduct the analyses at both monthly and quarterly frequencies. We use the monthly and quarterly closing prices to calculate the corresponding period non-overlapping log returns. We also carry out our analysis separately for each property type i.e. houses and units. The index accounts for both and does not differentiate between owner-occupied and investment property and excludes outliers at top and bottom 2.5\% levels. The indices include only non arms-length transactions to avoid any distortions in the index calculation. 
+
+The indices used in our calculation are real house price series adjusted for inflation\footnote{We use Consumer Price Index (CPI) from Australian Bureau of Statistics which is available at quarterly level. Hence for the monthly house price index, the monthly level CPI values are calculated by linear interpolation of the CPI index.}. We take data from June 2005 till September 2017 that is equivalent to 12 years and 4 months of data which is 148 values in months and 50 values in quarters. The CPI index used to adjust for inflation is available at the national level and there are no separate indices for different regions. Therefore the real index may not account for the slight differences across regions but that should not be decisive of the empirical results.
+
+Unlike the capital index that is based on the transactions data, the Corelogic's rental price index is built using the listing data which is a proxy for the rental prices in the market. 
 
 
-
-
-\section{Data}
-
-
-Provide the data description here...
-
-
-
+\begin{comment}
 \newgeometry{margin=1in}
+\input{Tables/regions.tex}
+\restoregeometry
+\end{comment}
+
+
+%% there is also similar figures for states available in figures..
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/Capital_houses_real_index_states.png}
+ \caption{Real Capital Price Index (Houses) for Australia and by States}
+ \label{fig:Capital_houses_real_index_states}
+ \includegraphics[width=\columnwidth]{Figures/Capital_units_real_index_states.png}
+ \caption{Real Capital Price Index (Units) for Australia and by States}
+ \label{fig:Capital_units_real_index_states}
+\end{figure}
+
+
+Figures \ref{fig:Capital_houses_real_index_states} and \ref{fig:Capital_units_real_index_states} show the real house price capital index from June 2005 to September 2017 for houses and units respectively. The house prices on average have increased by around 38\% since June 2005 with a CAGR of 2.47\%. The house prices in Victoria have seen the highest increase since 2005 of around 68\% with a CAGR of 4.32\%. New South Wales has a similar index movements but with lower price rise than Victoria of around 42\% with a CAGR of 2.9\%. The units have lower real price increases than houses on average. Units price index in Australia increased by around 18\% in September 2017 since June 2005 with CAGR of 1.35\%. The units price increase for Victoria and New South Wales was similar around 30\% with a CAGR of 2.1\%. The units price index for all other states closed at below 100 in September 2017 in real terms.
+
+
+
+
+Figures \ref{fig:Rental_houses_real_index_states} and \ref{fig:Rental_units_real_index_states} show the real rental price index from June 2005 to September 2017 for houses and units respectively. For the period, the Australian real rental price index for houses on average has increased by around 12\% with a CAGR of 0.9\%. For New South Wales the house rental price index (real) has increased by 20\% with CAGR of 1.49\% while Victoria's house rental price index (real) has increased by 15\% with a CAGR of 1.14\%. The unit rental price index (real) for Australia has increase by 20\% with a CAGR of 1.49\% which is similar to that of Victoria. While for New South Wales, the units rental price index (real) has increased by 24\% with a CAGR of 1.77\%. The rental price index for Tasmania is available from October 2008 which is re-based to 100 and the rental price has remained constant as of September 2017.
+
+In aggregate, we see that the real capital return for the period between June 2005 till September 2017 has been, on average, higher than the rental returns. When we look at it by property type, the real return on houses is higher than units in capital market whereas in the rental market there is higher returns on units than houses. This is in line with the expectations as lot of homeowners purchase units as part of investment and rent out the property whereas people who buy houses are mainly owner occupiers and therefore there is higher return on houses in capital markets.
+
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/Rental_houses_real_index_states.png}
+ \caption{Real Rental Price Index (Houses) for Australia and by States}
+ \label{fig:Rental_houses_real_index_states}
+ \includegraphics[width=\columnwidth]{Figures/Rental_units_real_index_states.png}
+ \caption{Real Rental Price Index (Units) for Australia and by States}
+ \label{fig:Rental_units_real_index_states}
+\end{figure}
+
+
+Tables \ref{tab:summary_stats_c_m} and \ref{tab:statistics_c_q} present the summary statistics for nationwide, states, greater capital cities and corresponding rest of states for the period June 2005 to September 2017 by property type for the real capital index returns at monthly and quarterly frequencies respectively. There are total of 148 monthly and 50 quarterly observations for all regions. The overall return at quarterly level is higher than the return at monthly level, as expected. In terms of property type, the real capital return for houses is higher than units with average return at national level for monthly (quarterly) frequency for houses being 0.4\% (1.2\%) and that for units being 0.3\% (0.9\%). The only region where units had higher average return is rest of South Australia where the average monthly (quarterly) return on houses is 0.1\% (0.2\%) and that for units is 0.2\% (0.6\%).
+
+\newgeometry{margin=0.5in}
 \input{Tables/summary_stats_c_m.tex}
 \restoregeometry
 
 
-\newgeometry{margin=1in}
+Tables \ref{tab:summary_stats_r_m} and \ref{tab:statistics_r_q} present the summary statistics for the period June 2005 to September 2017 by property type for the real rental index returns at monthly and quarterly frequencies respectively. For the period, there are 148 observations for all regions at monthly level except for Rest of Northern Territory houses and units that have 135 and 107 observations respectively, Rest of South Australia has 146 for Units, Tasmania and Greater Hobart have 109 and Rest of Tasmania has 108 observations. For quarterly frequency, there are 50 observations for all regions except for Rest of Northern Territory houses and units that have 45 and 36 observations respectively, Rest of South Australia with 49 for Units, Tasmania and Greater Hobart have 37 and Rest of Tasmania has 36 observations. The overall returns at quarterly level is higher than return at monthly level, as expected. In term of property type, the real rental return for houses at monthly level is the same as that of units at 0.3\%. However, at quarterly level, the return for units (0.8\%) is higher than that for houses (1\%).
+
+\newgeometry{margin=0.5in}
 \input{Tables/zr_stats_m.tex}
 \restoregeometry
 
 
+\section{Results}
+
+\subsection{Summary Results across all Regions}
 
 
+Tables \ref{tab:count_m_c} and \ref{tab:count_q_c} report the percentage distribution of regions with persistence in real housing capital monthly and quarterly returns from the period 2005 to 2017. At nationwide, state and GCC level, all regions have persistent returns at 1\% and 5\% significance levels for all dwellings. At SA4 (88 regions) and SA3 (332 regions) geographic region levels, we find that 83\% (84\%) and 69\% (75\%) of the regions are persistent at 1\% (5\%) significance. Across property types, overall there is higher persistence in houses than in units in capital returns.
 
+The results are also consistent when we test the results using Runs two-sided test. We also test the persistence using one-sided runs tests (Runs (-) and Runs (+)). The runs (-) and runs (+) tests for the null of random walk against the alternative of trend and first order serial correlations respectively. We find that in the former, we reject the null of random walk in the favour of trend and in the case of latter, we do not find evidence of first order serial correlation. There is less persistence found in the quarterly level data however the patterns of persistence in variance ratio and runs test and across property types are similar.
+
+
+Tables \ref{tab:count_m_r} and \ref{tab:count_q_r} report the percentage distribution of regions with persistence in real housing rental monthly and quarterly returns from the period 2005 to 2017. We find that overall for all dwellings there are less regions with persistent returns in rental market relative to capital market. The returns at nationwide level are found to be persistence. Out of eight states, we find 88\% and 100\% have persistent returns at 1\% and 5\% significance levels. For GCC region level, we find 60\% and 73\% of 15 regions to have persistent returns. At SA4 and SA3 level, we find 57\% (66\%) and 42\% (50\%) regions have persistent returns at 1\% (5\%) significant levels. If we look across property types in rental market, we find that units have greater number of regions with persistence as compared to houses vis-a-vis capital markets. 
+
+In runs test two-sided, we find the result are similar. In case of runs (-) and runs (+), we find significant results in the favour of trend and no negative first order serial correlation respectively. Again for quarterly level data, there are lesser regions with persistence than at monthly data, however there are similar patterns in the persistence results for both variance ratio and runs test across property types.
+
+Overall, as we go from lower to higher level of geographic regions, we find that there is more proportion of regions that have persistent returns indicating a stronger persistence in returns of regions that have persistence.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -272,8 +672,36 @@ Provide the data description here...
 \input{Tables/zr_count.tex}
 \restoregeometry
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_monthly_all.png}
+ \caption{Persistence at SA3 geographic level by property type - Capital and Rental Monthly Returns}
+ \label{fig:maps_monthly_all}
+\end{sidewaysfigure}
+
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_quarterly_all.png}
+ \caption{Persistence at SA3 geographic level by property type - Capital and Rental Monthly Returns}
+ \label{fig:maps_quarterly_all}
+\end{sidewaysfigure}
+
+
+
+\subsection{Results - Wild Bootstrap Automatic Variance Ratio Test}
+
+
+Tables \ref{tab:results_m} and \ref{tab:results_q_c} present the wild bootstrap automatic variance ratio test results for real monthly and quarterly capital returns respectively at nationwide, state, greater capital cities and rest of states levels. Panels A, B and C provide results for all dwelling, houses and units respectively. The tables report the automatic variance ratio (VRSum), test statistics and the p-value which is calculated from the boostrapped sample distribution of the variance ratios and represents the proportion of cases in which the VRSum (t-statistic) lies between the 95\% confidence interval. The CI.VRSum.lower and CI.VRSum.upper, and CI.stat.lower and CI.stat.upper represent the 2.5 percentile and 97.5 percentile of the bootstrapped distribution.
+
+We find that for all dwellings and houses, all regions have persistent returns at 1\% significance levels. For units, overall, we have less persistence than for houses. Nationwide the capital returns are persistent at 1\% level. At state level, all states have persistent returns at 1\% level except with Tasmania where the return are persistent at 5\% significance. Among greater cities, Greater Hobart is persistent at 5\% significance and for rest for states, we find that for \textit{Rest of Northern Territory}, \textit{Rest of South Australia} and \textit{Rest of Tasmania}, we cannot the reject the null of random walk at 5\% level. \textit{Rest of Western Australia} is found to have persistent capital returns at 5\% significance. 
+
+At quarterly level, there are lesser number of regions with persistent returns but the pattern of persistence across property types is similar.
+
 
 \newgeometry{margin=1in}
 \input{Tables/results_m.tex}
@@ -282,6 +710,14 @@ Provide the data description here...
 \newgeometry{margin=1in}
 \input{Tables/results_q.tex}
 \restoregeometry
+
+Tables \ref{tab:results_m_r} and \ref{tab:results_q_r} present the wild bootstrap automatic variance ratio test results for real monthly and quarterly rental returns respectively. Panel A, B and C provide results for all dwelling, houses and units respectively. We find that for all dwelling, at nationwide  level and for all states, the monthly returns are persistent at 1\% significance level. Among greater capital cities, all cities have persistent returns at 1\% significance except for Greater Adelaide where the returns are persistent at 5\% significance level. On rest of states level, \textit{Rest of New South Wales}, \textit{Rest of Northern Territory}, \textit{Rest of South Australia} and \textit{Rest of Tasmania} have insignificant persistence in returns at 5\% levels. 
+
+Across property types, we find that in case of houses, there is persistence in monthly returns at nationwide and state level at 1\% significance, except for the state of Tasmania where the persistence in returns is significant at 5\%. We also find that all greater capital cities have persistent returns except for Greater Adelaide where the monthly returns are persistent at 5\% significance. For rest of states, we find that \textit{Rest of New South Wales}, \textit{Rest of Northern Territory}, \textit{Rest of South Australia} and \textit{Rest of Tasmania} do not find evidence of persistence at 5\% level.
+
+In case of units, we find persistence at nationwide and state level, except for the state of Tasmania where persistence in rental returns is insignificant even at 5\%. We find that all greater capital cities have persistent rental returns at 1\% significance. For most of the rest of states we find persistence at 1\% level except for \textit{Rest of Tasmania} where persistence in rental return is found to be significant at 5\% level. For \textit{Rest of Northern Territory}, \textit{Rest of South Australia}, \textit{Rest of Victoria} and \textit{Rest of Western Australia}, we do not find evidence of persistence in rental returns even at 5\% significance. Overall we find that the persistence in the rental returns is less than in the capital market.
+
+At quarterly level, there are lesser number of regions with persistent returns but the pattern of persistence across property types is similar.
 
 \newgeometry{margin=1in}
 \input{Tables/zr_results_m.tex}
@@ -292,6 +728,18 @@ Provide the data description here...
 \restoregeometry
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Results - Independent Runs Test}
+
+Tables \ref{tab:runs_c_m} and \ref{tab:runs_c_q} present the results from the independent runs test for monthly and quarterly returns. As part of independent runs test, we test for the null of random walk against three alternatives two-sided test of persistence, left-sided test (-) that indicates less number of runs (or under-mixing) which represents trend and right-sided test that indicates more number of runs (or over-mixing) which represents oscillations. If the positive and negative returns are well mixed without any pattern then the returns can be considered as random and the number of runs in such case should equal the expected number of runs. On the other hand if the positive and negative returns are under mixed then there will be less number of runs which will give a trend in a particular direction or if the returns are over-mixed then there will be greater number of runs leading to oscillations in the time series. 
+
+The Runs test represents the two-sided runs test against persistence. Runs test (-) represents the one-sided runs test when the number of runs are less than expected and the Runs Test (+) represent the one-sided test when the number of run are more than the expected runs.
+
+We find that, for all dwellings, all regions are persistent at 1\% significance except for Rest of Northern Territory where the returns are found to be persistent at 5\% significance. In terms of one-sided right tailed test, we find that for all regions, we cannot reject the null of random walk which confirms mean aversion. However when we test the null of random walk against the alternative of trend (left-sided test), we find all regions are significant at 1\% with exception of Rest of Northern territory which is significant at 5\%. This suggests that there is strong persistence (or momentum) in monthly capital return.
+
+In case of houses, all regions are persistent at 1\% significance except for Greater Darwin which is significant at 5\% and Northern Territory which is insignificant at 5\%. In term of one-sided test, we cannot reject the null of random walk against the alternative of over-mixing where as for alternative of under mixing we find all regions are strongly persistent with trend, with exception of Northern Territory where the return are marginally insignificant at 5\% level.
+
+For units, we find that there is less persistence in monthly capital returns across regions. While most regions are persistent, we find Australian Capital Territory and Greater Adelaide have persistent returns are 5\% significance level. 
 
 
 \newgeometry{margin=1in}
@@ -312,6 +760,17 @@ Provide the data description here...
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+
+
+A further research topic for future work is the evaluation of the wild bootstrapping method for variance ratio tests.
+
+
+
+
+
+
 
 \begin{comment}
 
@@ -351,7 +810,129 @@ multiple variance ratio test considers multiple intervals and then
 % The appendix command is issued once, prior to all appendices, if any.
 
 \appendix
-\section{Mathematical Appendix}
+\section{Appendix}
+
+\begin{comment}
+
+\newgeometry{margin=1in}
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_act.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - Australian Capital Territory}
+ \label{fig:maps_c_act}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_nsw.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - New South Wales}
+ \label{fig:maps_c_nsw}
+\end{sidewaysfigure}
+
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_nt.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - Northern Territory}
+ \label{fig:maps_c_nt}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_qld.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - Queensland}
+ \label{fig:maps_c_qld}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_sa.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - South Australia}
+ \label{fig:maps_c_sa}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_tas.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - Tasmania}
+ \label{fig:maps_c_tas}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_vic.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - Victoria}
+ \label{fig:maps_c_vic}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_c_wa.png}
+ \caption{Persistence in Capital Returns at SA3 geographic level - Western Australia}
+ \label{fig:maps_c_wa}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_act.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - Australian Capital Territory}
+ \label{fig:maps_r_act}
+\end{sidewaysfigure}
+
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_nsw.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - New South Wales}
+ \label{fig:maps_r_nsw}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_nt.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - Northern Territory}
+ \label{fig:maps_r_nt}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_qld.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - Queensland}
+ \label{fig:maps_r_qld}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_sa.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - South Australia}
+ \label{fig:maps_r_sa}
+\end{sidewaysfigure}
+
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_tas.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - Tasmania}
+ \label{fig:maps_r_tas}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_vic.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - Victoria}
+ \label{fig:maps_r_vic}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!htbp]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/maps_r_wa.png}
+ \caption{Persistence in Rental Returns at SA3 geographic level - Western Australia}
+ \label{fig:maps_r_wa}
+\end{sidewaysfigure}
+
+\restoregeometry
+\end{comment}
+
 
 \end{document}
 
